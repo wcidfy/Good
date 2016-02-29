@@ -175,10 +175,6 @@
 			children = (
 				B509BF9C1C843D650039F2EA /* Load */,
 				B509BF781C8433A30039F2EA /* Main */,
-				B509BF801C8434A10039F2EA /* Discover */,
-				B509BF841C8434A10039F2EA /* Home */,
-				B509BF881C8434A10039F2EA /* Message */,
-				B509BF8C1C8434A10039F2EA /* Profile */,
 				B509BF7B1C8433A30039F2EA /* Others */,
 			);
 			path = Classes;
