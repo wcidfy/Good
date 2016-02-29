@@ -15,6 +15,9 @@
 		B509BF7E1C8433A30039F2EA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B509BF7A1C8433A30039F2EA /* ViewController.m */; };
 		B509BF7F1C8433A30039F2EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B509BF7D1C8433A30039F2EA /* AppDelegate.m */; };
 		B509BF921C8434CD0039F2EA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B509BF911C8434CD0039F2EA /* MainViewController.m */; };
+		B509BFAA1C8441450039F2EA /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B509BFA91C8441450039F2EA /* LoadViewController.m */; };
+		B509BFAD1C8441650039F2EA /* LoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = B509BFAC1C8441650039F2EA /* LoadView.m */; };
+		B584A1201C845C0A001D42E3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B584A11F1C845C0A001D42E3 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,13 @@
 		B509BF7D1C8433A30039F2EA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B509BF901C8434CD0039F2EA /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		B509BF911C8434CD0039F2EA /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B509BFA81C8441450039F2EA /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadViewController.h; sourceTree = "<group>"; };
+		B509BFA91C8441450039F2EA /* LoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadViewController.m; sourceTree = "<group>"; };
+		B509BFAB1C8441650039F2EA /* LoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadView.h; sourceTree = "<group>"; };
+		B509BFAC1C8441650039F2EA /* LoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadView.m; sourceTree = "<group>"; };
+		B509BFAF1C8446080039F2EA /* DefComm.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefComm.pch; sourceTree = "<group>"; };
+		B509BFB01C84481E0039F2EA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B584A11F1C845C0A001D42E3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +112,7 @@
 		B509BF381C84331D0039F2EA = {
 			isa = PBXGroup;
 			children = (
+				B584A11F1C845C0A001D42E3 /* Default-568h@2x.png */,
 				B509BF431C84331D0039F2EA /* Good */,
 				B509BF5D1C84331D0039F2EA /* GoodTests */,
 				B509BF681C84331D0039F2EA /* GoodUITests */,
@@ -128,6 +139,7 @@
 				B509BF501C84331D0039F2EA /* Assets.xcassets */,
 				B509BF551C84331D0039F2EA /* Info.plist */,
 				B509BF441C84331D0039F2EA /* Supporting Files */,
+				B509BFB01C84481E0039F2EA /* PrefixHeader.pch */,
 			);
 			path = Good;
 			sourceTree = "<group>";
@@ -161,6 +173,7 @@
 		B509BF771C8433A30039F2EA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B509BF9C1C843D650039F2EA /* Load */,
 				B509BF781C8433A30039F2EA /* Main */,
 				B509BF801C8434A10039F2EA /* Discover */,
 				B509BF841C8434A10039F2EA /* Home */,
@@ -187,6 +200,7 @@
 			children = (
 				B509BF7C1C8433A30039F2EA /* AppDelegate.h */,
 				B509BF7D1C8433A30039F2EA /* AppDelegate.m */,
+				B509BFAF1C8446080039F2EA /* DefComm.pch */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -315,6 +329,41 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B509BF9C1C843D650039F2EA /* Load */ = {
+			isa = PBXGroup;
+			children = (
+				B509BF9D1C843D650039F2EA /* Controller */,
+				B509BF9E1C843D650039F2EA /* Model */,
+				B509BF9F1C843D650039F2EA /* View */,
+			);
+			path = Load;
+			sourceTree = "<group>";
+		};
+		B509BF9D1C843D650039F2EA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B509BFA81C8441450039F2EA /* LoadViewController.h */,
+				B509BFA91C8441450039F2EA /* LoadViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B509BF9E1C843D650039F2EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B509BF9F1C843D650039F2EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B509BFAB1C8441650039F2EA /* LoadView.h */,
+				B509BFAC1C8441650039F2EA /* LoadView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -425,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B509BF511C84331D0039F2EA /* Assets.xcassets in Resources */,
+				B584A1201C845C0A001D42E3 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,9 +547,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B509BFAD1C8441650039F2EA /* LoadView.m in Sources */,
 				B509BF7E1C8433A30039F2EA /* ViewController.m in Sources */,
 				B509BF461C84331D0039F2EA /* main.m in Sources */,
 				B509BF7F1C8433A30039F2EA /* AppDelegate.m in Sources */,
+				B509BFAA1C8441450039F2EA /* LoadViewController.m in Sources */,
 				B509BF921C8434CD0039F2EA /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,6 +614,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Good/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -603,6 +656,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Good/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -622,6 +676,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Good/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lxx.adqer.com.Good;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -634,6 +689,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Good/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lxx.adqer.com.Good;
 				PRODUCT_NAME = "$(TARGET_NAME)";

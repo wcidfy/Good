@@ -19,19 +19,22 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
+  - SMS-For-iOS (1.2.0)
 
 DEPENDENCIES:
   - AFNetworking
   - Masonry
   - MBProgressHUD
   - SDWebImage
+  - SMS-For-iOS
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  SMS-For-iOS: 7d5179426f5b80ce38a5a89c85ad3754fb57d9cf
 
-PODFILE CHECKSUM: 83ef168e06d11e58acee4f87be8052ee1998f3a1
+PODFILE CHECKSUM: 4caa5288cf113fb2a4a3a71f44a69f61cf218a58
 
 COCOAPODS: 1.0.0.beta.4

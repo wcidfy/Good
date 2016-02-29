@@ -6,5 +6,5 @@ pod 'SDWebImage'
 pod 'AFNetworking'
 pod 'Masonry'
 pod 'MBProgressHUD'
-
+pod 'SMS-For-iOS'
 end

@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "LoadViewController.h"
+#import <SMS_SDK/SMSSDK.h>
+#define appKey @"fe3b8dcca629"
+#define appSecret @"b93fa8cd227559e91fc64d6e6f2d3ccf"
 @interface AppDelegate ()
 
 @end
@@ -20,9 +24,14 @@
     
     
     self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    MainViewController *main=[[MainViewController alloc]init];
-    self.window.rootViewController=main;
+    LoadViewController *load=[[LoadViewController alloc]init];
+    self.window.rootViewController=load;
     [self.window makeKeyAndVisible];
+    
+    
+    //初始化应用，appKey和appSecret从后台申请得
+    [SMSSDK registerApp:appKey
+             withSecret:appSecret];
     return YES;
 }
 
