@@ -11,6 +11,9 @@
 #import <SMS_SDK/SMSSDK.h>
 @interface LoadViewController ()
 @property(nonatomic,strong)LoadView *load;
+@property(nonatomic, assign) NSInteger secondsCountDown;
+@property(nonatomic, strong) NSTimer *countDownTimer;
+
 @end
 
 @implementation LoadViewController
@@ -26,22 +29,38 @@
 -(void)butClick
 {
     [_load.yZbut addTarget:self action:@selector(yZbutClick) forControlEvents:UIControlEventTouchUpInside];
-
+   
 
 }
 #pragma  mark 获取验证码
 -(void)yZbutClick
 {
-    
+    _secondsCountDown=10;
+    _countDownTimer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
     [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:@"13071817460" zone:@"86" customIdentifier:nil result:^(NSError *error) {
                                          if (!error) {
                                               NSLog(@"获取验证码成功");
+//                                              [_load.yZbut setTitle:@"重新发送" forState:UIControlStateNormal];
                                          }else
                                          {
                                          NSLog(@"错误信息：%@",error);
                                          
                                          }
                                      }];
+
+}
+-(void)timeFireMethod
+{
+    
+    [_load.yZbut setTitle:[NSString stringWithFormat:@"重发%ld",(long)_secondsCountDown] forState:UIControlStateNormal];
+    _secondsCountDown--;
+    _load.yZbut.enabled=NO;
+    if ([_load.yZbut.titleLabel.text isEqualToString:@"重发0"]) {
+        [_countDownTimer invalidate];
+        [_load.yZbut setTitle:@"发送验证码" forState:UIControlStateNormal];
+        _load.yZbut.enabled=YES;
+
+    }
 
 }
 - (void)viewDidLoad {
