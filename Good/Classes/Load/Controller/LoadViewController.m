@@ -24,34 +24,62 @@
     self.view=_load;
 
     [self butClick];
-}
+   }
 #pragma mark 添加按钮点击方法
 -(void)butClick
 {
     [_load.yZbut addTarget:self action:@selector(yZbutClick) forControlEvents:UIControlEventTouchUpInside];
-   
-
+    [_load.logBut addTarget:self action:@selector(logButClick) forControlEvents:UIControlEventTouchUpInside];
 }
 #pragma  mark 获取验证码
 -(void)yZbutClick
 {
-    _secondsCountDown=10;
+    
+  
+
+    _secondsCountDown=60;
     _countDownTimer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
-    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:@"13071817460" zone:@"86" customIdentifier:nil result:^(NSError *error) {
+    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:_load.phoneText.text zone:@"86" customIdentifier:nil result:^(NSError *error) {
                                          if (!error) {
                                               NSLog(@"获取验证码成功");
 //                                              [_load.yZbut setTitle:@"重新发送" forState:UIControlStateNormal];
                                          }else
                                          {
                                          NSLog(@"错误信息：%@",error);
-                                         
+                                             [ABCommonTools showInstrutions:[NSString stringWithFormat:@"%@",error.userInfo[error.domain]] inView:self.view];
                                          }
                                      }];
 
 }
+#pragma mark 登录按钮点击
+-(void)logButClick
+{
+//    [SMSSDK commitVerificationCode:self.verifyCodeField.text phoneNumber:_ zone:_areaCode result:^(NSError *error) {
+//        
+//        if (!error) {
+//            NSLog(@"验证成功");
+//        }
+//        else
+//        {
+//            NSLog(@"错误信息:%@",error);
+//        }
+//    }];
+    [SMSSDK commitVerificationCode:_load.messageText.text phoneNumber:_load.phoneText.text zone:@"86" result:^(NSError *error) {
+        if (!error) {
+                        NSLog(@"验证成功");
+                    }
+                    else
+                    {
+                        NSLog(@"错误信息:%@",error);
+                        [ABCommonTools showInstrutions:[NSString stringWithFormat:@"%@",error.userInfo[error.domain]] inView:self.view];
+                    }
+
+    }];
+}
 -(void)timeFireMethod
 {
-    
+   
+
     [_load.yZbut setTitle:[NSString stringWithFormat:@"重发%ld",(long)_secondsCountDown] forState:UIControlStateNormal];
     _secondsCountDown--;
     _load.yZbut.enabled=NO;
@@ -68,20 +96,15 @@
 
     self.view.backgroundColor=[UIColor whiteColor];
 }
+#pragma mark  移除键盘
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (![_load.phoneText isExclusiveTouch]||![_load.messageText isExclusiveTouch]) {
+        [_load.phoneText resignFirstResponder];
+         [_load.messageText resignFirstResponder];
+        
+    }
+
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

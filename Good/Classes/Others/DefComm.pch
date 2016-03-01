@@ -11,5 +11,23 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+/**系统版本**/
+//系统判定
+#define  IOS_VERSION        [[[UIDevice currentDevice]systemVersion]floatValue]
+#define IS_IOS8 (IOS_VERSION>=8.0)
+#define IS_IOS7 (IOS_VERSION>=7.0)
+
+// 屏幕判定
+#define IS_IPHONE4  ([SDiPhoneVersion deviceSize] == iPhone35inch ? YES : NO)
+#define IS_IPHONE5  ([SDiPhoneVersion deviceSize] == iPhone4inch ? YES : NO)
+#define IS_IPHONE6  ([SDiPhoneVersion deviceSize] == iPhone47inch ? YES : NO)
+#define IS_IPHONE6P ([SDiPhoneVersion deviceSize] == iPhone55inch ? YES : NO)
+
+
+
+
+
 #import "Masonry.h"
+#import "ABCommonTools.h"
+#import "MBProgressHUD.h"
 #endif /* DefComm_pch */

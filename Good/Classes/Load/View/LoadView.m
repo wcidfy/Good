@@ -37,6 +37,10 @@
         _messageText =[self getTextFile];
         [self addSubview:_messageText];
         
+        _logBut=[self getBut];
+        [_logBut setTitle:@"登录" forState:UIControlStateNormal];
+        [self addSubview:_logBut];
+        
         
     }
 
@@ -70,13 +74,19 @@
         make.top.equalTo(_phoneText.bottom).offset(20);
     }];
 
-
+    [_logBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_messageText.bottom).offset(20);
+        make.left.equalTo(self).offset(40);
+        make.right.equalTo(self).offset(-40);
+        make.height.equalTo(40);
+    }];
 }
 -(UITextField *)getTextFile
 {
     UITextField *t=[[UITextField alloc]init];
     [t setFont:[UIFont systemFontOfSize:14]];
     t.textAlignment=NSTextAlignmentLeft;
+    t.keyboardType = UIKeyboardTypeNumberPad;
     t.backgroundColor=[UIColor lightGrayColor];
     return t;
 
