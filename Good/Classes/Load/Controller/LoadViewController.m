@@ -37,7 +37,7 @@
     
   
 
-    _secondsCountDown=60;
+    _secondsCountDown=10;
     _countDownTimer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeFireMethod) userInfo:nil repeats:YES];
     [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:_load.phoneText.text zone:@"86" customIdentifier:nil result:^(NSError *error) {
                                          if (!error) {
@@ -47,35 +47,14 @@
                                          {
                                          NSLog(@"错误信息：%@",error);
                                              [ABCommonTools showInstrutions:[NSString stringWithFormat:@"%@",error.userInfo[error.domain]] inView:self.view];
+                                             [_load.yZbut setTitle:@"发送验证码" forState:UIControlStateNormal];
+                                             [_countDownTimer invalidate];
                                          }
+       
                                      }];
 
 }
-#pragma mark 登录按钮点击
--(void)logButClick
-{
-//    [SMSSDK commitVerificationCode:self.verifyCodeField.text phoneNumber:_ zone:_areaCode result:^(NSError *error) {
-//        
-//        if (!error) {
-//            NSLog(@"验证成功");
-//        }
-//        else
-//        {
-//            NSLog(@"错误信息:%@",error);
-//        }
-//    }];
-    [SMSSDK commitVerificationCode:_load.messageText.text phoneNumber:_load.phoneText.text zone:@"86" result:^(NSError *error) {
-        if (!error) {
-                        NSLog(@"验证成功");
-                    }
-                    else
-                    {
-                        NSLog(@"错误信息:%@",error);
-                        [ABCommonTools showInstrutions:[NSString stringWithFormat:@"%@",error.userInfo[error.domain]] inView:self.view];
-                    }
 
-    }];
-}
 -(void)timeFireMethod
 {
    
@@ -85,7 +64,7 @@
     _load.yZbut.enabled=NO;
     if ([_load.yZbut.titleLabel.text isEqualToString:@"重发0"]) {
         [_countDownTimer invalidate];
-        [_load.yZbut setTitle:@"发送验证码" forState:UIControlStateNormal];
+        [_load.yZbut setTitle:@"重新发送" forState:UIControlStateNormal];
         _load.yZbut.enabled=YES;
 
     }
@@ -95,6 +74,30 @@
     [super viewDidLoad];
 
     self.view.backgroundColor=[UIColor whiteColor];
+}
+#pragma mark 登录按钮点击
+-(void)logButClick
+{
+    if(_load.phoneText.text.length!=11)
+    {
+        [ABCommonTools showInstrutions:@"电话号码有误" inView:self.view];
+
+    
+    }else
+    {
+    [SMSSDK commitVerificationCode:_load.messageText.text phoneNumber:_load.phoneText.text zone:@"86" result:^(NSError *error) {
+        if (!error) {
+            NSLog(@"验证成功");
+        }
+        else
+        {
+            NSLog(@"错误信息:%@",error);
+//            [NSString stringWithFormat:@"%@",error.userInfo[error.domain]]
+            [ABCommonTools showInstrutions:@"验证码错误" inView:self.view];
+        }
+        
+    }];
+    }
 }
 #pragma mark  移除键盘
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

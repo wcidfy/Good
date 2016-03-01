@@ -86,6 +86,8 @@
     UITextField *t=[[UITextField alloc]init];
     [t setFont:[UIFont systemFontOfSize:14]];
     t.textAlignment=NSTextAlignmentLeft;
+    t.layer.masksToBounds=YES;
+    t.layer.cornerRadius=10;
     t.keyboardType = UIKeyboardTypeNumberPad;
     t.backgroundColor=[UIColor lightGrayColor];
     return t;
@@ -97,6 +99,8 @@
 {
     UILabel *la=[[UILabel alloc]init];
     la.backgroundColor=[UIColor lightGrayColor];
+    la.layer.masksToBounds=YES;
+    la.layer.cornerRadius=10;
     [la setFont:[UIFont systemFontOfSize:12]];
     la.textAlignment=NSTextAlignmentCenter;
 
@@ -105,8 +109,10 @@
 
 -(UIButton *)getBut
 {
-    UIButton *bu=[UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *bu=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     bu.backgroundColor=[UIColor lightGrayColor];
+    bu.layer.masksToBounds=YES;
+    bu.layer.cornerRadius=10;
     [bu.titleLabel setFont:[UIFont systemFontOfSize:12]];
     bu.titleLabel.textAlignment=NSTextAlignmentCenter;
     return bu;

@@ -66,10 +66,10 @@
 		B509BFAF1C8446080039F2EA /* DefComm.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefComm.pch; sourceTree = "<group>"; };
 		B509BFB01C84481E0039F2EA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B584A11F1C845C0A001D42E3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		B5B5410D1C853A7000651B89 /* ABCommonTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCommonTools.h; sourceTree = "<group>"; };
-		B5B5410E1C853A7000651B89 /* ABCommonTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCommonTools.m; sourceTree = "<group>"; };
-		B5B5410F1C853A7000651B89 /* StoryBoardUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryBoardUtilities.h; sourceTree = "<group>"; };
-		B5B541101C853A7000651B89 /* StoryBoardUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryBoardUtilities.m; sourceTree = "<group>"; };
+		B5B5410D1C853A7000651B89 /* ABCommonTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABCommonTools.h; path = ../Load/Model/ABCommonTools.h; sourceTree = "<group>"; };
+		B5B5410E1C853A7000651B89 /* ABCommonTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABCommonTools.m; path = ../Load/Model/ABCommonTools.m; sourceTree = "<group>"; };
+		B5B5410F1C853A7000651B89 /* StoryBoardUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryBoardUtilities.h; path = ../Load/Model/StoryBoardUtilities.h; sourceTree = "<group>"; };
+		B5B541101C853A7000651B89 /* StoryBoardUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryBoardUtilities.m; path = ../Load/Model/StoryBoardUtilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +179,7 @@
 		B509BF771C8433A30039F2EA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B5B541171C856A9B00651B89 /* commTool */,
 				B509BF9C1C843D650039F2EA /* Load */,
 				B509BF781C8433A30039F2EA /* Main */,
 				B509BF7B1C8433A30039F2EA /* Others */,
@@ -229,10 +230,6 @@
 		B509BF9E1C843D650039F2EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B5B5410D1C853A7000651B89 /* ABCommonTools.h */,
-				B5B5410E1C853A7000651B89 /* ABCommonTools.m */,
-				B5B5410F1C853A7000651B89 /* StoryBoardUtilities.h */,
-				B5B541101C853A7000651B89 /* StoryBoardUtilities.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,6 +241,17 @@
 				B509BFAC1C8441650039F2EA /* LoadView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B5B541171C856A9B00651B89 /* commTool */ = {
+			isa = PBXGroup;
+			children = (
+				B5B5410D1C853A7000651B89 /* ABCommonTools.h */,
+				B5B5410E1C853A7000651B89 /* ABCommonTools.m */,
+				B5B5410F1C853A7000651B89 /* StoryBoardUtilities.h */,
+				B5B541101C853A7000651B89 /* StoryBoardUtilities.m */,
+			);
+			path = commTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
