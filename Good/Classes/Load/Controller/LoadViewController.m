@@ -9,6 +9,7 @@
 #import "LoadViewController.h"
 #import "LoadView.h"
 #import <SMS_SDK/SMSSDK.h>
+#import "MainViewController.h"
 @interface LoadViewController ()
 @property(nonatomic,strong)LoadView *load;
 @property(nonatomic, assign) NSInteger secondsCountDown;
@@ -88,12 +89,15 @@
     [SMSSDK commitVerificationCode:_load.messageText.text phoneNumber:_load.phoneText.text zone:@"86" result:^(NSError *error) {
         if (!error) {
             NSLog(@"验证成功");
+           
         }
         else
         {
             NSLog(@"错误信息:%@",error);
 //            [NSString stringWithFormat:@"%@",error.userInfo[error.domain]]
             [ABCommonTools showInstrutions:@"验证码错误" inView:self.view];
+            MainViewController *main=[[MainViewController alloc]init];
+            [self presentViewController:main animated:YES completion:nil];
         }
         
     }];
